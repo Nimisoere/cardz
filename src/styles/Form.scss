@@ -1,0 +1,11 @@
+@layer components {
+  .form-label {
+    @apply border-primary text-sm border-0 w-full flex border-l-4 pl-2 my-2;
+  }
+  .form-control {
+    @apply border rounded p-2 border-gray-300;
+  }
+  ::-webkit-file-upload-button {
+    @apply bg-primary border-0 rounded text-white;
+  }
+}
