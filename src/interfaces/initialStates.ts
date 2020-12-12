@@ -1,7 +1,7 @@
 import { AppState, FetchState, KeyFetchState, NotificationState } from ".";
 
 export const initialNotificationState: NotificationState = {
-  alertType: 'info',
+  alertType: "info",
   message: "",
 };
 
@@ -17,3 +17,8 @@ export const initialState: AppState = {
   notification: initialNotificationState,
   apiRequest: {} as KeyFetchState,
 };
+
+export interface Params {
+  [x: string]: string | undefined;
+  [x: number]: string | undefined;
+}

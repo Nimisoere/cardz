@@ -10,7 +10,7 @@ import { initialState } from "../interfaces/initialStates";
 import rootReducer, { RootState } from "./reducers";
 
 const persistConfig = {
-  key: "retailr-xceltopdf",
+  key: "cardz",
   storage,
 };
 

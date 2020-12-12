@@ -17,18 +17,24 @@ const Layout = ({ component }: Props) => {
         </div>
         <div className="flex items-center space-x-4">
           <NavLink
+            activeClassName="hidden"
             to="/game/34343"
             className="btn btn-secondary hover:opacity-80"
           >
             Continue Game
           </NavLink>
           <NavLink
+            activeClassName="hidden"
             to="/new-game"
             className="btn btn-secondary hover:opacity-80"
           >
             New Game
           </NavLink>
-          <NavLink to="/rules" className="btn btn-primary hover:opacity-80">
+          <NavLink
+            activeClassName="hidden"
+            to="/rules"
+            className="btn btn-primary hover:opacity-80"
+          >
             Rules
           </NavLink>
         </div>

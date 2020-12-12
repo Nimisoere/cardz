@@ -24,7 +24,7 @@ const Rules = (props: Props) => {
     <div>
       <Seo title="Rules" description="Game Rules" />
       <div className="container mx-auto">
-        <div className="w-full bg-white p-8 my-16 rounded text-gray-700">
+        <div className={`w-full bg-white p-8 my-16 rounded text-gray-700`}>
           <ReactMarkdown plugins={[gfm]} children={markdown}></ReactMarkdown>
         </div>
       </div>

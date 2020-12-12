@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import Seo from "../../components/Seo/Seo";
 import style from "./Home.module.scss";
 
 interface Props {}
@@ -8,6 +9,7 @@ interface Props {}
 const Home = (props: Props) => {
   return (
     <div className="container flex flex-col justify-center items-center mx-auto h-screen">
+      <Seo title="Play" description="Play Cardz" />
       <div className="w-full text-center">
         <img src={logo} className="inline-block w-96" alt="cardz logo" />
       </div>
