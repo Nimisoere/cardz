@@ -25,6 +25,7 @@ const PlayerRow = ({ player, board }: Props) => {
         </p>
         <div className="w-full flex justify-start">
           <button
+            onClick={() => player.shuffleCards()}
             className={`btn btn-secondary mr-4 ${style["homebtn-secondary"]}`}
           >
             Shuffle

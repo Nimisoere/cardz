@@ -6,11 +6,14 @@ class Board {
   cardsInMiddle: Card[];
   players: Player[];
   turn: string;
+
   constructor() {
     this.cardsInMiddle = [];
     this.players = [];
     this.turn = "";
   }
+
+  // Distribute cards on game start
   private distributePlayerCards() {
     const deck = new Deck();
     deck.addCards();
@@ -29,27 +32,91 @@ class Board {
       });
     }
   }
+
+  // Start game
   start(playerCount: number) {
     for (let i = 0; i <= playerCount - 1; i++) {
       this.players.push(new Player(`Player ${i + 1}`));
     }
     this.distributePlayerCards();
+    // Set current turn to player 1
     this.turn = this.players[0].id;
   }
-  private getNextTurn(currentIndex: number) {}
-  private checkIfCardsMatch() {}
+
+  private getNewIndex(currentIndex: number) {
+    let newIndex = currentIndex;
+    if (newIndex < this.players.length - 1) {
+      newIndex++;
+    } else if (newIndex === this.players.length - 1) {
+      newIndex = 0;
+    }
+    return newIndex;
+  }
+
+  // Set turn to next player
+  private getNextTurn(currentIndex: number) {
+    const startIndex = currentIndex;
+    let newIndex = this.getNewIndex(currentIndex);
+
+    while (!this.players[newIndex].playerCards.length) {
+      newIndex = this.getNewIndex(newIndex);
+    }
+    if (startIndex === newIndex) {
+      console.log(`${this.players[startIndex].playerName} WINS`);
+      return `${this.players[startIndex].playerName} WINS`;
+    }
+    this.turn = this.players[newIndex].id;
+  }
+  private checkIfCardsMatch(currentIndex: number) {
+    // If card shapes match
+    if (
+      this.cardsInMiddle.length > 1 &&
+      this.cardsInMiddle[0].suit === this.cardsInMiddle[1].suit
+    ) {
+      // Push all cards in middle to player's stack
+      this.players[currentIndex].playerCards.push(...this.cardsInMiddle);
+      // Empty Cards in middle
+      this.cardsInMiddle = [];
+      // Pop card on top of player's stack to middle
+      const cardtoPlay = this.players[currentIndex].playerCards.pop();
+      cardtoPlay && this.cardsInMiddle.push(cardtoPlay);
+    }
+  }
+
+  resetGame() {
+    window.confirm("Are you sure you want to start a new game");
+    this.cardsInMiddle = [];
+    this.players = [];
+    this.turn = "";
+    this.start(4);
+  }
+
+  // Play a turn
   play(playerId: string) {
+    // Check if correct turn
+    if (playerId !== this.turn) return console.log("Not your turn");
+
+    // Get player index
     const currentIndex = this.players.findIndex(
       (player: Player) => player.id === playerId
     );
+
+    // If found
     if (currentIndex || currentIndex === 0) {
-      const cardtoPlay = this.players[currentIndex].playerCards.pop();
-      cardtoPlay && this.cardsInMiddle.unshift(cardtoPlay);
-      this.checkIfCardsMatch();
+      // Check if user has cards
+      if (this.players[currentIndex].playerCards.length) {
+        // Pop card off stack
+        const cardtoPlay = this.players[currentIndex].playerCards.pop();
+        // Add card to top of cards in middle
+        cardtoPlay && this.cardsInMiddle.unshift(cardtoPlay);
+        // Check if its a match
+        this.checkIfCardsMatch(currentIndex);
+      }
+      // Move turn to next player
       this.getNextTurn(currentIndex);
     }
+    console.log(this);
   }
-  shuffleCards(playerId: string) {}
 }
 
 export default Board;
