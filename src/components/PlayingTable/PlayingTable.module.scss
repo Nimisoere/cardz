@@ -1,0 +1,7 @@
+@layer components {
+  .playingTable {
+    background: url(../../assets/woodback.jpeg);
+    box-shadow: inset 3px 3px 22px #000;
+    @apply h-96 rounded border-8 border-yellow-900;
+  }
+}

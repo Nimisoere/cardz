@@ -1,0 +1,18 @@
+.cardDisplay {
+  background: url(../../assets/vector-playing-card-back.png) no-repeat;
+  background-size: contain;
+  @apply mr-4;
+}
+
+@layer components {
+  .homebtn-secondary {
+    @apply border-b-4 text-sm border-yellow-700 px-3 py-1;
+  }
+  .homebtn-primary {
+    @apply border-b-4 text-sm border-green-900 px-3 py-1;
+  }
+  .homebtn-primary:hover,
+  .homebtn-secondary:hover {
+    @apply border-b-2;
+  }
+}

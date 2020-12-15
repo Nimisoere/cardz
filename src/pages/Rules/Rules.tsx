@@ -3,14 +3,11 @@ import Seo from "../../components/Seo/Seo";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 import rules from "./rules.md";
-import style from "./Rules.module.scss";
 
 interface Props {}
 
 const Rules = (props: Props) => {
   const [markdown, setMarkDown] = useState<string>("");
-  console.log(style);
-
   useEffect(() => {
     const getFile = async () => {
       const res = await fetch(rules);

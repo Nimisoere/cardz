@@ -12,15 +12,13 @@ import Routes from "./routes/Routes";
 const persistor = persistStore(store);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ErrorBoundary>
-          <Routes />
-        </ErrorBoundary>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <ErrorBoundary>
+        <Routes />
+      </ErrorBoundary>
+    </PersistGate>
+  </Provider>,
   document.getElementById("root")
 );
 
