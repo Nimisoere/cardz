@@ -7,7 +7,7 @@ import store from "./redux/store";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import ErrorBoundary from "./components/Shared/ErrorBoundary";
-import Routes from "./routes/Routes";
+import Routes from "./routes";
 
 const persistor = persistStore(store);
 

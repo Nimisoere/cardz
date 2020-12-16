@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Seo from "../../components/Seo/Seo";
 import { PropsFromRedux } from ".";
+import Board from "../../utils/board";
 
 interface Props extends PropsFromRedux {}
 
@@ -11,7 +12,10 @@ const Start = ({ startGame }: Props) => {
     .map((_, i) => i + 2);
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data: any) => {
-    startGame({ numberOfPlayers: data.numberOfPlayers });
+    let gameBoard = new Board();
+    gameBoard.start(data.numberOfPlayers);
+    const gameBoardJS = gameBoard.toPlainObj();
+    startGame(gameBoardJS);
   };
 
   return (

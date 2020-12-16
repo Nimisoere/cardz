@@ -1,6 +1,6 @@
 export type VerticalPosition = "top" | "bottom";
 export type HorizontalPosition = "left" | "right" | "center";
-export type AlertType = "success" | "error" | "info" | "warning";
+export type AlertType = "success" | "error" | "info" | "warning" | "";
 
 export enum NotificationActionTypes {
   SHOW = "NOTIFICATION_SHOW",
@@ -13,7 +13,17 @@ export interface NotificationActionProps {
 }
 
 export interface BoardActionProps {
-  numberOfPlayers: number;
+  board: Board;
+}
+
+export interface BoardPlayerActionProps {
+  name: string;
+  playerId: string;
+}
+
+export interface PlayerCardActionProps {
+  shuffledCards: Card[];
+  playerId: string;
 }
 
 export interface NotificationState {

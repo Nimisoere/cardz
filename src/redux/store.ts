@@ -14,7 +14,9 @@ const persistConfig = {
   storage,
 };
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

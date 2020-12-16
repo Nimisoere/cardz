@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router";
-import { BrowserRouter } from "react-router-dom";
+import { Router, Route, Switch } from "react-router";
 import { ToastContainer, toast, ToastContentProps } from "react-toastify";
-
 import ScrollToTop from "./ScrollToTop";
 import { PropsFromRedux } from ".";
 import Layout from "../components/Layout";
@@ -13,6 +11,7 @@ import Start from "../pages/Start";
 import Rules from "../pages/Rules";
 import "react-toastify/dist/ReactToastify.min.css";
 import * as serviceWorker from "../serviceWorker";
+import { history } from "../redux/store";
 
 interface RefrestToastProps extends ToastContentProps {
   action: () => void;
@@ -31,7 +30,7 @@ const RefreshToast = ({ closeToast, action }: RefrestToastProps) => {
   );
 };
 
-const Routes: React.FC<PropsFromRedux> = () => {
+const Routes: React.FC<PropsFromRedux> = ({ notification, clear }) => {
   const [newVersionAvailable, setNewVersionAvailable] = useState(false);
   const [waitingWorker, setWaitingWorker] = useState<any>({
     postMessage: (message: any) => message,
@@ -47,6 +46,18 @@ const Routes: React.FC<PropsFromRedux> = () => {
       serviceWorker.register({ onUpdate: onServiceWorkerUpdate });
     }
   }, []);
+
+  useEffect(() => {
+    if (notification.alertType && notification.message) {
+      toast[notification.alertType](notification.message, {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+      });
+    }
+    return () => {
+      clear();
+    };
+  }, [clear, notification.alertType, notification.message]);
 
   useEffect(() => {
     const updateServiceWorker = () => {
@@ -78,7 +89,7 @@ const Routes: React.FC<PropsFromRedux> = () => {
   }, [newVersionAvailable, waitingWorker]);
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Router history={history}>
       <ToastContainer />
       <ScrollToTop />
       <Switch>
@@ -105,7 +116,7 @@ const Routes: React.FC<PropsFromRedux> = () => {
           />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 

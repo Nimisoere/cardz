@@ -2,7 +2,9 @@ import { connect, ConnectedProps } from "react-redux";
 import { AppState } from "../../interfaces";
 import PlayingTable from "./PlayingTable";
 
-const mapState = (state: AppState) => ({});
+const mapState = (state: AppState) => ({
+  board: state.board,
+});
 
 const mapDispatch = {};
 

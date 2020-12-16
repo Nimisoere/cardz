@@ -116,6 +116,15 @@ class Board {
       this.getNextTurn(currentIndex);
     }
   }
+  toPlainObj() {
+    let plainObj;
+    try {
+      plainObj = JSON.parse(JSON.stringify(this));
+      return plainObj;
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }
 
 export default Board;

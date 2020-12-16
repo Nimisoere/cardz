@@ -8,10 +8,11 @@ const notification = createSlice({
   reducers: {
     show(state, action: PayloadAction<NotificationActionProps>) {
       state.alertType = action.payload.alertType;
-      state.message = action.payload.message
+      state.message = action.payload.message;
     },
-    clear(state, action: PayloadAction<NotificationActionProps>) {
-      
+    clear(state) {
+      state.alertType = "";
+      state.message = "";
     },
   },
 });
