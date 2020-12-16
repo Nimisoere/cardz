@@ -10,6 +10,7 @@ export const initialBoardState: Board = {
   cardsInMiddle: [],
   players: [],
   turn: "",
+  winner: null,
 };
 
 export const initialState: AppState = {

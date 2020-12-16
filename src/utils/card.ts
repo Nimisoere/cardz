@@ -1,4 +1,4 @@
-export type Suit = "spade" | "heart" | "joker" | "diamond" | "clubs";
+export type Suit = "spade" | "heart" | "diamond" | "clubs";
 export type Rank =
   | "ace"
   | "2"
@@ -12,8 +12,7 @@ export type Rank =
   | "10"
   | "jack"
   | "queen"
-  | "king"
-  | "joker";
+  | "king";
 export type CardValue =
   | 1
   | 2

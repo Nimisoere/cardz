@@ -45,46 +45,55 @@ const getNextTurn = (currentIndex: number, board: Board) => {
   }
   if (startIndex === newIndex) {
     console.log(`${board.players[startIndex].playerName} WINS`);
-    return `${board.players[startIndex].playerName} WINS`;
+    return null;
   }
-  board.turn = board.players[newIndex].id;
+  return board.players[newIndex].id;
 };
 
-const checkIfCardsMatch = (currentIndex: number, board: Board) => {
-  // If card shapes match
+const checkIfCardsMatch = (cardsInMiddle: Card[], playerCards: Card[]) => {
+  let cards: Card[] = [];
+  let modifiedCardsInMiddle: Card[] = [];
   if (
-    board.cardsInMiddle.length > 1 &&
-    board.cardsInMiddle[0].suit === board.cardsInMiddle[1].suit
+    cardsInMiddle.length > 1 &&
+    cardsInMiddle[0].suit === cardsInMiddle[1].suit
   ) {
-    // Push all cards in middle to player's stack
-    board.players[currentIndex].playerCards.push(...board.cardsInMiddle);
-    // Empty Cards in middle
-    board.cardsInMiddle = [];
-    // Pop card on top of player's stack to middle
-    const cardtoPlay = board.players[currentIndex].playerCards.pop();
-    cardtoPlay && board.cardsInMiddle.push(cardtoPlay);
+    cards = [...playerCards, ...cardsInMiddle];
+    const cardtoPlay = cards[0];
+    modifiedCardsInMiddle = [cardtoPlay];
+    cards = cards.slice(1);
+    return { cards, cardsInMiddle: modifiedCardsInMiddle };
   }
+  return null;
 };
 
 // Play a turn
-export const play = (playerId: string, board: Board) => {
-  // Get player index
+export const play = (currentPlayer: Player, board: Board) => {
+  let cards: Card[] = [];
+  let cardsInMiddle: Card[] = [];
+  let turn: string | null = "";
+  let chopped = false;
   const currentIndex = board.players.findIndex(
-    (player: Player) => player.id === playerId
+    (player: Player) => player.id === currentPlayer.id
   );
-
-  // If found
   if (currentIndex || currentIndex === 0) {
-    // Check if user has cards
-    if (board.players[currentIndex].playerCards.length) {
-      // Pop card off stack
-      const cardtoPlay = board.players[currentIndex].playerCards.pop();
-      // Add card to top of cards in middle
-      cardtoPlay && board.cardsInMiddle.unshift(cardtoPlay);
-      // Check if its a match
-      checkIfCardsMatch(currentIndex, board);
+    if (currentPlayer.playerCards.length) {
+      const cardtoPlay = currentPlayer.playerCards[0];
+      cards = currentPlayer.playerCards.slice(1);
+      cardsInMiddle = [cardtoPlay, ...board.cardsInMiddle];
+
+      const modifiedValues = checkIfCardsMatch(cardsInMiddle, cards);
+      if (modifiedValues) {
+        cards = [...modifiedValues.cards];
+        cardsInMiddle = [...modifiedValues.cardsInMiddle];
+        chopped = true;
+      }
     }
-    // Move turn to next player
-    getNextTurn(currentIndex, board);
+    turn = getNextTurn(currentIndex, board);
   }
+  return {
+    cardsInMiddle,
+    cards,
+    turn,
+    chopped,
+  };
 };

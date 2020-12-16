@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PlayerSideBar from "../../components/PlayerSideBar";
 import PlayingTable from "../../components/PlayingTable";
@@ -9,11 +9,19 @@ import { Player } from "../../interfaces";
 
 interface Props extends PropsFromRedux {}
 
-const Game = ({ board }: Props) => {
+const Game = ({ board, notify }: Props) => {
   const { gameId } = useParams<Params>();
   const currentPlayer = board.players.find(
     (player: Player) => player.id === board.turn
   );
+  useEffect(() => {
+    if (board.winner) {
+      notify({
+        alertType: "success",
+        message: `${board.winner.playerName} WINS!!!`,
+      });
+    }
+  }, [board.winner, notify]);
 
   return (
     <div className="container flex items-center my-12 mx-auto">
@@ -23,7 +31,9 @@ const Game = ({ board }: Props) => {
       </div>
       <div className="w-9/12 p-8">
         <h4 className="text-center text-2xl font-semibold text-secondary mb-8">
-          {currentPlayer?.playerName}'s Turn
+          {board.winner
+            ? `${board.winner.playerName} WINS!!!`
+            : `${currentPlayer?.playerName}'s Turn`}
         </h4>
         <PlayingTable />
       </div>

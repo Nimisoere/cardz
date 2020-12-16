@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../../utils/card";
+import style from "./PlayingCard.module.scss";
 
 interface Props {
   card: Card;
@@ -7,8 +8,12 @@ interface Props {
 
 const PlayingCard = ({ card }: Props) => {
   return (
-    <div>
-      {card.rank} {card.suit}
+    <div
+      className={`${style.playingCard} ${style[card.suit]} ${
+        style[`cards_${card.value}`]
+      } justify-center items-center flex flex-wrap text-black font-bold`}
+    >
+      &nbsp;
     </div>
   );
 };

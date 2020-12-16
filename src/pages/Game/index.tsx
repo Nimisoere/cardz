@@ -1,12 +1,15 @@
 import { connect, ConnectedProps } from "react-redux";
 import { AppState } from "../../interfaces";
+import { show } from "../../redux/slices/notification";
 import Game from "./Game";
 
 const mapState = (state: AppState) => ({
   board: state.board,
 });
 
-const mapDispatch = {};
+const mapDispatch = {
+  notify: show,
+};
 
 const connector = connect(mapState, mapDispatch);
 

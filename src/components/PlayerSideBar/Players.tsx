@@ -11,7 +11,7 @@ const Players = ({ board, updatePlayer, shuffle, play, notify }: Props) => {
   const { gameId } = useParams<Params>();
 
   return (
-    <div className="bg-white rounded p-2">
+    <div className="bg-white rounded">
       <h4 className="text-secondary font-bold">Game {gameId}</h4>
       <div className="w-full">
         {board.players.map((player: Player) => (

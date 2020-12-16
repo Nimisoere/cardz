@@ -16,6 +16,18 @@ export interface BoardActionProps {
   board: Board;
 }
 
+export interface BoardPlayActionProps {
+  board: Board;
+  player: Player;
+}
+
+export interface PlayActionProps {
+  cards: Card[];
+  cardsInMiddle: Card[];
+  turn: string | null;
+  player: Player;
+}
+
 export interface BoardPlayerActionProps {
   name: string;
   playerId: string;
@@ -36,7 +48,7 @@ export interface AppState {
   board: Board;
 }
 
-export type Suit = "spade" | "heart" | "joker" | "diamond" | "clubs";
+export type Suit = "spade" | "heart" | "diamond" | "clubs";
 export type Rank =
   | "ace"
   | "2"
@@ -50,8 +62,7 @@ export type Rank =
   | "10"
   | "jack"
   | "queen"
-  | "king"
-  | "joker";
+  | "king";
 export type CardValue =
   | 1
   | 2
@@ -85,4 +96,5 @@ export interface Board {
   cardsInMiddle: Card[];
   players: Player[];
   turn: string;
+  winner: Player | null;
 }

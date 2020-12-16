@@ -1,0 +1,65 @@
+@layer components {
+  .playingCard {
+    width: 181px;
+    height: 250px;
+    margin-left: -120px;
+    @apply bg-transparent rounded-2xl border border-gray-400;
+  }
+  .heart {
+    background: url(../../assets/hearts.jpg) no-repeat;
+  }
+  .spade {
+    background: url(../../assets/spades.jpg) no-repeat;
+  }
+  .diamond {
+    background: url(../../assets/diamonds.jpg) no-repeat;
+  }
+  .clubs {
+    background: url(../../assets/clubs.jpg) no-repeat;
+  }
+  .cards_1 {
+    background-position: 0px 0px;
+  }
+  .cards_2 {
+    background-position: -204px 0px;
+  }
+  .cards_3 {
+    background-position: -408px 0px;
+  }
+  .cards_4 {
+    background-position: -610px 0px;
+  }
+  .cards_5 {
+    background-position: -815px 0px;
+  }
+  .cards_6 {
+    background-position: 0px -266px;
+  }
+  .cards_7 {
+    background-position: -204px -266px;
+  }
+  .cards_8 {
+    background-position: -408px -266px;
+  }
+  .cards_9 {
+    background-position: -610px -266px;
+  }
+  .cards_10 {
+    background-position: -815px 0px;
+  }
+  .cards_11 {
+    background-position: 0px -533px;
+  }
+  .cards_12 {
+    background-position: -204px -533px;
+  }
+  .cards_13 {
+    background-position: -408px -533px;
+  }
+}
+
+@for $i from 1 through 6 {
+  .playingCard:nth-child(#{$i}) {
+    z-index: #{6 - $i};
+  }
+}

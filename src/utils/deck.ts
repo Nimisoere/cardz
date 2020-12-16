@@ -30,8 +30,6 @@ class Deck {
         this.cards.push(new Card(suits[i], ranks[j], values[j]));
       }
     }
-    this.cards.push(new Card("joker", "joker", 14));
-    this.cards.push(new Card("joker", "joker", 14));
   }
   /* Found this lovely shuffle logic online */
   shuffleDeck(): void {
