@@ -1,5 +1,3 @@
-import { AxiosError } from "axios";
-
 export type VerticalPosition = "top" | "bottom";
 export type HorizontalPosition = "left" | "right" | "center";
 export type AlertType = "success" | "error" | "info" | "warning";
@@ -14,6 +12,10 @@ export interface NotificationActionProps {
   message: string;
 }
 
+export interface BoardActionProps {
+  numberOfPlayers: number;
+}
+
 export interface NotificationState {
   alertType: AlertType;
   message: string;
@@ -21,47 +23,56 @@ export interface NotificationState {
 
 export interface AppState {
   notification: NotificationState;
-  apiRequest: KeyFetchState;
+  board: Board;
 }
 
-export interface KeyFetchState {
-  [x: string]: FetchState;
+export type Suit = "spade" | "heart" | "joker" | "diamond" | "clubs";
+export type Rank =
+  | "ace"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "jack"
+  | "queen"
+  | "king"
+  | "joker";
+export type CardValue =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14;
+
+export interface Card {
+  suit: Suit;
+  rank: Rank;
+  value: CardValue;
 }
 
-export interface KeyFetchAction {
-  key: string;
-  request?: Datum | null;
-  response?: Data | Datum | null;
-  error?: AxiosError | null;
+export interface Player {
+  id: string;
+  playerName: string;
+  playerCards: Card[];
 }
 
-export interface FetchState {
-  loading: boolean;
-  success: boolean;
-  request: Datum | null;
-  response: any | null;
-  error: AxiosError | null;
-}
-
-export interface Datum {
-  [i: number]: never | boolean;
-  [k: string]: any | boolean;
-}
-
-export interface FetchAction {
-  type: string;
-  request?: Datum | null;
-  response?: Data | Datum | null;
-  error?: AxiosError | null;
-}
-
-export type Data = Datum[];
-
-export enum API_KEYS {
-  GET_TEMPLATES = "GET_TEMPLATES",
-  GET_TEMPLATE = "GET_TEMPLATES",
-  CREATE_TEMPLATE = "GET_TEMPLATES",
-  UPDATE_TEMPLATE = "GET_TEMPLATES",
-  GENERATE_PDF = "GENERATE_PDF",
-  CONVERT_XLS = "CONVERT_XLS",
+export interface Board {
+  id: string;
+  cardsInMiddle: Card[];
+  players: Player[];
+  turn: string;
 }

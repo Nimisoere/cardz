@@ -1,8 +1,9 @@
-import { connect, ConnectedProps } from 'react-redux';
-import { AppState } from '../../interfaces';
-import Layout from './Layout';
+import { connect, ConnectedProps } from "react-redux";
+import { AppState } from "../../interfaces";
+import Layout from "./Layout";
 
 const mapState = (state: AppState) => ({
+  board: state.board,
 });
 
 const mapDispatch = {};

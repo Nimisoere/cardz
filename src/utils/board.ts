@@ -67,6 +67,7 @@ class Board {
     }
     this.turn = this.players[newIndex].id;
   }
+
   private checkIfCardsMatch(currentIndex: number) {
     // If card shapes match
     if (
@@ -88,7 +89,6 @@ class Board {
     this.cardsInMiddle = [];
     this.players = [];
     this.turn = "";
-    this.start(4);
   }
 
   // Play a turn
@@ -115,7 +115,6 @@ class Board {
       // Move turn to next player
       this.getNextTurn(currentIndex);
     }
-    console.log(this);
   }
 }
 

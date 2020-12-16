@@ -1,21 +1,20 @@
-import { AppState, FetchState, KeyFetchState, NotificationState } from ".";
+import { AppState, Board, NotificationState } from ".";
 
 export const initialNotificationState: NotificationState = {
   alertType: "info",
   message: "",
 };
 
-export const initialFetchState: FetchState = {
-  loading: false,
-  success: false,
-  request: null,
-  response: null,
-  error: null,
+export const initialBoardState: Board = {
+  id: "",
+  cardsInMiddle: [],
+  players: [],
+  turn: "",
 };
 
 export const initialState: AppState = {
   notification: initialNotificationState,
-  apiRequest: {} as KeyFetchState,
+  board: initialBoardState,
 };
 
 export interface Params {

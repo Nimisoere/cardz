@@ -1,8 +1,7 @@
 import React from "react";
-import Player from "../../utils/player";
+import { Player, Board } from "../../interfaces";
 import style from "./PlayerRow.module.scss";
 import { AiOutlineEdit } from "react-icons/ai";
-import Board from "../../utils/board";
 
 interface Props {
   player: Player;
@@ -25,13 +24,13 @@ const PlayerRow = ({ player, board }: Props) => {
         </p>
         <div className="w-full flex justify-start">
           <button
-            onClick={() => player.shuffleCards()}
+            onClick={() => null}
             className={`btn btn-secondary mr-4 ${style["homebtn-secondary"]}`}
           >
             Shuffle
           </button>
           <button
-            onClick={() => board.play(player.id)}
+            onClick={() => null}
             className={`btn btn-primary ${style["homebtn-primary"]}`}
           >
             Play

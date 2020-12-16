@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { PropsFromRedux } from ".";
 
-interface Props {
+interface Props extends PropsFromRedux {
   component: React.ReactNode;
 }
 
-const Layout = ({ component }: Props) => {
+const Layout = ({ component, board }: Props) => {
   return (
     <div className="font-serif w-full">
       <div className="flex container mx-auto justify-between">
@@ -16,13 +17,15 @@ const Layout = ({ component }: Props) => {
           </NavLink>
         </div>
         <div className="flex items-center space-x-4">
-          <NavLink
-            activeClassName="hidden"
-            to="/game/34343"
-            className="btn btn-secondary hover:opacity-80"
-          >
-            Continue Game
-          </NavLink>
+          {board.id && (
+            <NavLink
+              activeClassName="hidden"
+              to={`/game/${board.id}`}
+              className="btn btn-secondary hover:opacity-80"
+            >
+              Continue Game
+            </NavLink>
+          )}
           <NavLink
             activeClassName="hidden"
             to="/new-game"

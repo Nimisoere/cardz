@@ -1,8 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Params } from "../../interfaces/initialStates";
-import Board from "../../utils/board";
-import Player from "../../utils/player";
+import { Player, Board } from "../../interfaces";
 import PlayerRow from "./PlayerRow";
 
 interface Props {

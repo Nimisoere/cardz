@@ -1,16 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Seo from "../../components/Seo/Seo";
-import { Datum } from "../../interfaces";
+import { PropsFromRedux } from ".";
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
-const Start = (props: Props) => {
-  const playerArr = Array(4)
+const Start = ({ startGame }: Props) => {
+  const playerArr = Array(3)
     .fill(null)
-    .map((_, i) => i + 1);
+    .map((_, i) => i + 2);
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data: Datum) => console.log(data);
+  const onSubmit = (data: any) => {
+    startGame({ numberOfPlayers: data.numberOfPlayers });
+  };
 
   return (
     <div className="w-full">
@@ -27,7 +29,7 @@ const Start = (props: Props) => {
         >
           <option value="">Select number of players</option>
           {playerArr.map((item) => (
-            <option value={item}>
+            <option key={item} value={item}>
               {item} Player{item > 1 && "s"}{" "}
             </option>
           ))}
