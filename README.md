@@ -2,18 +2,18 @@
 
 This project was build with React/Typescript, Redux toolkit, Redux persist.
 
-## Demo
+## DEMO
 
 [http://localhost:3000](http://localhost:3000)
 
-## To Do
+## TO DO
 
 - Add AI Game play
 - Add Card animations
 - Increase test coverage
 - Show Game History
 
-## Game Rules
+## HOW TO PLAY
 
 ### **Starting a new game**
 
