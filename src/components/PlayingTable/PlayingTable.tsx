@@ -10,8 +10,8 @@ interface Props extends PropsFromRedux {}
 
 const PlayingTable = ({ board }: Props) => {
   return (
-    <div className={`flex w-full h-full  ${style.playingTable}`}>
-      <div className="w-9/12 justify-center items-center flex">
+    <div className={`flex flex-wrap w-full h-full  ${style.playingTable}`}>
+      <div className="sm:w-9/12 w-full justify-center items-center sm:p-2 p-4 flex">
         {board.winner ? (
           <Link
             to="/new-game"
@@ -27,7 +27,7 @@ const PlayingTable = ({ board }: Props) => {
           </>
         )}
       </div>
-      <div className="w-3/12 bg-yellow-900 flex justify-center items-center h-full">
+      <div className="sm:w-3/12 w-full bg-yellow-900 flex justify-center items-center h-full">
         <div className="p-8 w-full text-center">
           <h4>Number of Cards in middle</h4>
           <p className="text-6xl font-semibold">{board.cardsInMiddle.length}</p>

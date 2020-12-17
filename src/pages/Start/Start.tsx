@@ -24,12 +24,12 @@ const Start = ({ startGame }: Props) => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{ height: "50vh" }}
-        className="container justify-center flex flex-col items-center mx-auto my-16"
+        className="container justify-center flex flex-col items-center mx-auto my-16 sm:px-0 px-4"
       >
         <select
           name="numberOfPlayers"
           ref={register({ required: true })}
-          className="bg-white w-96 rounded px-2 shadow-sm text-gray-700 py-4"
+          className="bg-white w-96 max-w-full rounded px-2 shadow-sm text-gray-700 py-4"
         >
           <option value="">Select number of players</option>
           {playerArr.map((item) => (
@@ -43,7 +43,10 @@ const Start = ({ startGame }: Props) => {
             Select number of players
           </span>
         )}
-        <button type="submit" className={`my-8 w-96 p-4 btn btn-secondary`}>
+        <button
+          type="submit"
+          className={`my-8 w-96 max-w-full p-4 btn btn-secondary`}
+        >
           Start Game
         </button>
       </form>

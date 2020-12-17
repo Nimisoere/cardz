@@ -1,9 +1,9 @@
 @layer components {
   .homebtn-secondary {
-    @apply font-semibold border-b-8 border-yellow-700 text-sm p-6 w-96;
+    @apply font-semibold border-b-8 border-yellow-700 text-sm p-6 w-96 max-w-full;
   }
   .homebtn-primary {
-    @apply font-semibold border-b-8 border-green-900 text-sm p-6 w-96;
+    @apply font-semibold border-b-8 border-green-900 text-sm p-6 w-96 max-w-full;
   }
   .homebtn-primary:hover,
   .homebtn-secondary:hover {

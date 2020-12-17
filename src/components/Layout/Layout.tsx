@@ -10,7 +10,7 @@ interface Props extends PropsFromRedux {
 const Layout = ({ component, board }: Props) => {
   return (
     <div className="font-serif w-full">
-      <div className="flex container mx-auto justify-between">
+      <div className="flex flex-wrap sm:px-0 px-4 container mx-auto justify-between">
         <div>
           <NavLink to="/">
             <img src={logo} alt="Cardz logo" className="h-20" />

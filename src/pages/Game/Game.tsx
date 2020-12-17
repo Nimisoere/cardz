@@ -24,20 +24,22 @@ const Game = ({ board, notify }: Props) => {
   }, [board.winner, notify]);
 
   return (
-    <div className="container flex items-center my-12 mx-auto">
+    <>
       <Seo title={`Game ${gameId}`} description={`Playing Game ${gameId}`} />
-      <div className="w-3/12 bg-white text-gray-700 rounded p-4">
-        <PlayerSideBar />
+      <div className="container flex flex-wrap items-center my-12 mx-auto sm:px-0 px-4">
+        <div className="sm:w-9/12 w-full sm:p-8 p-0">
+          <h4 className="text-center text-2xl font-semibold text-secondary mb-8">
+            {board.winner
+              ? `${board.winner.playerName} WINS!!!`
+              : `${currentPlayer?.playerName}'s Turn`}
+          </h4>
+          <PlayingTable />
+        </div>
+        <div className="sm:w-3/12 w-full xsm:mt-0 mt-4 bg-white text-gray-700 rounded p-4">
+          <PlayerSideBar />
+        </div>
       </div>
-      <div className="w-9/12 p-8">
-        <h4 className="text-center text-2xl font-semibold text-secondary mb-8">
-          {board.winner
-            ? `${board.winner.playerName} WINS!!!`
-            : `${currentPlayer?.playerName}'s Turn`}
-        </h4>
-        <PlayingTable />
-      </div>
-    </div>
+    </>
   );
 };
 

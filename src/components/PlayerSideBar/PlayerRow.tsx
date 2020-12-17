@@ -81,12 +81,12 @@ const PlayerRow = ({
       <div className="w-5/6">
         {player.playerCards.length ? (
           <>
-            <h4 className={`font-semibold flex items-center `}>
+            <h4 className={`font-semibold flex flex-wrap items-center w-full`}>
               {editMode ? (
-                <form onSubmit={handleSubmit(setPlayerName)}>
+                <form className="w-full" onSubmit={handleSubmit(setPlayerName)}>
                   <input
                     type="text"
-                    className="border border-gray-300 text-sm rounded p-1"
+                    className="border border-gray-300 text-sm rounded max-w-full p-1"
                     ref={register({ required: true })}
                     name={`player_${player.id}_name`}
                   />
@@ -121,7 +121,7 @@ const PlayerRow = ({
               {player.playerCards.length} Cards
             </p>
             {isPlayerTurn && (
-              <div className="w-full flex justify-start">
+              <div className="w-full flex flex-wrap justify-start">
                 <button
                   disabled={!player.playerCards.length}
                   onClick={() => handleShuffle()}
