@@ -10,7 +10,7 @@ import Game from "../pages/Game";
 import Start from "../pages/Start";
 import Rules from "../pages/Rules";
 import "react-toastify/dist/ReactToastify.min.css";
-import * as serviceWorker from "../service-worker";
+import * as serviceWorker from "../serviceWorker";
 import { history } from "../redux/store";
 
 interface RefrestToastProps extends ToastContentProps {
