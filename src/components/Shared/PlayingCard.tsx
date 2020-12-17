@@ -10,7 +10,7 @@ const PlayingCard = ({ card }: Props) => {
   return (
     <div
       className={`${style.playingCard} ${style[card.suit]} ${
-        style[`cards_${card.value}`]
+        style[`cards${card.value}`]
       } justify-center items-center flex flex-wrap text-black font-bold`}
     >
       &nbsp;
