@@ -12,6 +12,7 @@ This project was build with React/Typescript, Redux toolkit, Redux persist.
 - Add Card animations
 - Increase test coverage
 - Show Game History
+- Add P2P Play
 
 ## HOW TO PLAY
 
