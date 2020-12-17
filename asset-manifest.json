@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/cardz/static/css/main.be5d3192.chunk.css",
-    "main.js": "/cardz/static/js/main.c5354d77.chunk.js",
-    "main.js.map": "/cardz/static/js/main.c5354d77.chunk.js.map",
+    "main.css": "/cardz/static/css/main.eddc0dad.chunk.css",
+    "main.js": "/cardz/static/js/main.abbb152c.chunk.js",
+    "main.js.map": "/cardz/static/js/main.abbb152c.chunk.js.map",
     "runtime-main.js": "/cardz/static/js/runtime-main.04c1283f.js",
     "runtime-main.js.map": "/cardz/static/js/runtime-main.04c1283f.js.map",
     "static/css/2.93b5ccd8.chunk.css": "/cardz/static/css/2.93b5ccd8.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.ffa0e6a3.chunk.js.map": "/cardz/static/js/3.ffa0e6a3.chunk.js.map",
     "index.html": "/cardz/index.html",
     "static/css/2.93b5ccd8.chunk.css.map": "/cardz/static/css/2.93b5ccd8.chunk.css.map",
-    "static/css/main.be5d3192.chunk.css.map": "/cardz/static/css/main.be5d3192.chunk.css.map",
+    "static/css/main.eddc0dad.chunk.css.map": "/cardz/static/css/main.eddc0dad.chunk.css.map",
     "static/js/2.97fb5dbb.chunk.js.LICENSE.txt": "/cardz/static/js/2.97fb5dbb.chunk.js.LICENSE.txt",
     "static/media/PlayingCard.module.scss": "/cardz/static/media/spades.fe11924f.jpg",
     "static/media/logo.13af2aec.svg": "/cardz/static/media/logo.13af2aec.svg",
@@ -25,7 +25,7 @@
     "static/js/runtime-main.04c1283f.js",
     "static/css/2.93b5ccd8.chunk.css",
     "static/js/2.97fb5dbb.chunk.js",
-    "static/css/main.be5d3192.chunk.css",
-    "static/js/main.c5354d77.chunk.js"
+    "static/css/main.eddc0dad.chunk.css",
+    "static/js/main.abbb152c.chunk.js"
   ]
 }
