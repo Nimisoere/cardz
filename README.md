@@ -13,6 +13,7 @@ This project was build with React/Typescript, Redux toolkit, Redux persist.
 - Increase test coverage
 - Show Game History
 - Add P2P Play
+- Implement mobile view
 
 ## HOW TO PLAY
 
