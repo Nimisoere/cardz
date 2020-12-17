@@ -6,11 +6,12 @@ import {
   BoardPlayerActionProps,
   PlayActionProps,
   Player,
+  TurnActionProps,
   PlayerCardActionProps,
 } from "../../interfaces";
 import { initialBoardState } from "../../interfaces/initialStates";
 import Board from "../../utils/board";
-import { play as playTurn } from "../../utils/common";
+import { play as playTurn, checkIfCardsMatch } from "../../utils/common";
 
 import { history } from "../store";
 import { show } from "./notification";
@@ -24,15 +25,22 @@ const board = createSlice({
       state.players = board.players;
       state.cardsInMiddle = board.cardsInMiddle;
       state.turn = board.players[0].id;
+      state.winner = null;
+    },
+    updateTurn(
+      state,
+      { payload: { turn, player } }: PayloadAction<TurnActionProps>
+    ) {
+      state.turn = turn || "";
+      state.winner = turn ? null : player;
     },
     play(
       state,
       {
-        payload: { cards, cardsInMiddle, turn, player: playerParams },
+        payload: { cards, cardsInMiddle, player: playerParams },
       }: PayloadAction<PlayActionProps>
     ) {
       state.cardsInMiddle = [...cardsInMiddle];
-      state.turn = turn || "";
       state.players = state.players.map((player: Player) =>
         player.id === playerParams.id
           ? {
@@ -41,7 +49,6 @@ const board = createSlice({
             }
           : player
       );
-      state.winner = turn ? null : playerParams;
     },
     updatePlayer(state, action: PayloadAction<BoardPlayerActionProps>) {
       state.players = state.players.map((player: Player) =>
@@ -66,7 +73,13 @@ const board = createSlice({
   },
 });
 
-export const { startGame, play, updatePlayer, shuffle } = board.actions;
+export const {
+  startGame,
+  play,
+  updatePlayer,
+  shuffle,
+  updateTurn,
+} = board.actions;
 
 export const start = (board: Board) => (dispatch: Dispatch) => {
   const boardId = uid(8);
@@ -82,25 +95,46 @@ export const start = (board: Board) => (dispatch: Dispatch) => {
   history.push(`/game/${boardId}`);
 };
 
-export const playAction = (payload: BoardPlayActionProps) => (
+export const playAction = (payload: BoardPlayActionProps) => async (
   dispatch: Dispatch
 ) => {
-  const { cards, cardsInMiddle, turn, chopped } = playTurn(
+  const { cards, cardsInMiddle, turn } = playTurn(
     payload.player,
     payload.board
   );
-  if (chopped) {
-    dispatch(
-      show({
-        alertType: "info",
-        message: `${payload.player.playerName} cleared the table`,
-      })
-    );
-  }
+  // Displatch play
   dispatch(
     play({
       cards,
       cardsInMiddle,
+      player: payload.player,
+    })
+  );
+
+  const modifiedValues = checkIfCardsMatch(cardsInMiddle, cards);
+  if (modifiedValues) {
+    await new Promise<void>((done) =>
+      setTimeout(() => {
+        dispatch(
+          play({
+            cards: [...modifiedValues.cards],
+            cardsInMiddle: [...modifiedValues.cardsInMiddle],
+            player: payload.player,
+          })
+        );
+        dispatch(
+          show({
+            alertType: "info",
+            message: `${payload.player.playerName} cleared the table`,
+          })
+        );
+        done();
+      }, 200)
+    );
+  }
+  // Dispatch next turn
+  dispatch(
+    updateTurn({
       turn,
       player: payload.player,
     })

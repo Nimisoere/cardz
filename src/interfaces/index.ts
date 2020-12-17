@@ -24,6 +24,10 @@ export interface BoardPlayActionProps {
 export interface PlayActionProps {
   cards: Card[];
   cardsInMiddle: Card[];
+  player: Player;
+}
+
+export interface TurnActionProps {
   turn: string | null;
   player: Player;
 }

@@ -15,7 +15,7 @@ const PlayingTable = ({ board }: Props) => {
         {board.winner ? (
           <Link
             to="/new-game"
-            className="btn btn-secondery font-semibold border-b-8 border-yellow-700 text-sm p-6 w-96 hover:border-b-4"
+            className="btn btn-secondary font-semibold border-b-8 border-yellow-700 text-sm p-6 w-96 hover:border-b-4"
           >
             New Game
           </Link>

@@ -50,7 +50,10 @@ const getNextTurn = (currentIndex: number, board: Board) => {
   return board.players[newIndex].id;
 };
 
-const checkIfCardsMatch = (cardsInMiddle: Card[], playerCards: Card[]) => {
+export const checkIfCardsMatch = (
+  cardsInMiddle: Card[],
+  playerCards: Card[]
+) => {
   let cards: Card[] = [];
   let modifiedCardsInMiddle: Card[] = [];
   if (
@@ -71,7 +74,6 @@ export const play = (currentPlayer: Player, board: Board) => {
   let cards: Card[] = [];
   let cardsInMiddle: Card[] = [];
   let turn: string | null = "";
-  let chopped = false;
   const currentIndex = board.players.findIndex(
     (player: Player) => player.id === currentPlayer.id
   );
@@ -80,13 +82,6 @@ export const play = (currentPlayer: Player, board: Board) => {
       const cardtoPlay = currentPlayer.playerCards[0];
       cards = currentPlayer.playerCards.slice(1);
       cardsInMiddle = [cardtoPlay, ...board.cardsInMiddle];
-
-      const modifiedValues = checkIfCardsMatch(cardsInMiddle, cards);
-      if (modifiedValues) {
-        cards = [...modifiedValues.cards];
-        cardsInMiddle = [...modifiedValues.cardsInMiddle];
-        chopped = true;
-      }
     }
     turn = getNextTurn(currentIndex, board);
   }
@@ -94,6 +89,5 @@ export const play = (currentPlayer: Player, board: Board) => {
     cardsInMiddle,
     cards,
     turn,
-    chopped,
   };
 };

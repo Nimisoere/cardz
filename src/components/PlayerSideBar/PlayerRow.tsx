@@ -120,22 +120,24 @@ const PlayerRow = ({
             <p className="text-secondary text-sm">
               {player.playerCards.length} Cards
             </p>
-            <div className="w-full flex justify-start">
-              <button
-                disabled={!player.playerCards.length}
-                onClick={() => handleShuffle()}
-                className={`btn btn-secondary mr-4 ${style["homebtn-secondary"]}`}
-              >
-                Shuffle
-              </button>
-              <button
-                disabled={!player.playerCards.length}
-                onClick={() => playTurn()}
-                className={`btn btn-primary ${style["homebtn-primary"]}`}
-              >
-                Play
-              </button>
-            </div>
+            {isPlayerTurn && (
+              <div className="w-full flex justify-start">
+                <button
+                  disabled={!player.playerCards.length}
+                  onClick={() => handleShuffle()}
+                  className={`btn btn-secondary mr-4 ${style["homebtn-secondary"]}`}
+                >
+                  Shuffle
+                </button>
+                <button
+                  disabled={!player.playerCards.length}
+                  onClick={() => playTurn()}
+                  className={`btn btn-primary ${style["homebtn-primary"]}`}
+                >
+                  Play
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <h4 className={`font-semibold flex items-center text-gray-400`}>
