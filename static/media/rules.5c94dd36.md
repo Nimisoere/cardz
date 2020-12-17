@@ -1,15 +1,21 @@
-# How to play
+# **How to play**
 
-## Starting a new game
+---
+
+## **Starting a new game**
 
 - Click on the `New Game` button at the top
 - Select number of players and click the `Start Game` button
 
-## Continuing a previous game
+---
+
+## **Continuing a previous game**
 
 - We save your last Game in the browser, just click on `Continue Game` to play
 
-## Game rules
+---
+
+## **Game rules**
 
 - Each player plays a single card each turn
 - Cards can only be picked from the top of a player's each

@@ -1,28 +1,31 @@
 {
   "files": {
-    "main.css": "/cardz/static/css/main.845bd164.chunk.css",
-    "main.js": "/cardz/static/js/main.7dec8998.chunk.js",
-    "main.js.map": "/cardz/static/js/main.7dec8998.chunk.js.map",
-    "runtime-main.js": "/cardz/static/js/runtime-main.61541520.js",
-    "runtime-main.js.map": "/cardz/static/js/runtime-main.61541520.js.map",
+    "main.css": "/cardz/static/css/main.be5d3192.chunk.css",
+    "main.js": "/cardz/static/js/main.c5354d77.chunk.js",
+    "main.js.map": "/cardz/static/js/main.c5354d77.chunk.js.map",
+    "runtime-main.js": "/cardz/static/js/runtime-main.04c1283f.js",
+    "runtime-main.js.map": "/cardz/static/js/runtime-main.04c1283f.js.map",
     "static/css/2.93b5ccd8.chunk.css": "/cardz/static/css/2.93b5ccd8.chunk.css",
-    "static/js/2.11449d4d.chunk.js": "/cardz/static/js/2.11449d4d.chunk.js",
-    "static/js/2.11449d4d.chunk.js.map": "/cardz/static/js/2.11449d4d.chunk.js.map",
-    "static/js/3.fc56c12c.chunk.js": "/cardz/static/js/3.fc56c12c.chunk.js",
-    "static/js/3.fc56c12c.chunk.js.map": "/cardz/static/js/3.fc56c12c.chunk.js.map",
+    "static/js/2.97fb5dbb.chunk.js": "/cardz/static/js/2.97fb5dbb.chunk.js",
+    "static/js/2.97fb5dbb.chunk.js.map": "/cardz/static/js/2.97fb5dbb.chunk.js.map",
+    "static/js/3.ffa0e6a3.chunk.js": "/cardz/static/js/3.ffa0e6a3.chunk.js",
+    "static/js/3.ffa0e6a3.chunk.js.map": "/cardz/static/js/3.ffa0e6a3.chunk.js.map",
     "index.html": "/cardz/index.html",
     "static/css/2.93b5ccd8.chunk.css.map": "/cardz/static/css/2.93b5ccd8.chunk.css.map",
-    "static/css/main.845bd164.chunk.css.map": "/cardz/static/css/main.845bd164.chunk.css.map",
-    "static/js/2.11449d4d.chunk.js.LICENSE.txt": "/cardz/static/js/2.11449d4d.chunk.js.LICENSE.txt",
+    "static/css/main.be5d3192.chunk.css.map": "/cardz/static/css/main.be5d3192.chunk.css.map",
+    "static/js/2.97fb5dbb.chunk.js.LICENSE.txt": "/cardz/static/js/2.97fb5dbb.chunk.js.LICENSE.txt",
+    "static/media/PlayingCard.module.scss": "/cardz/static/media/spades.fe11924f.jpg",
     "static/media/logo.13af2aec.svg": "/cardz/static/media/logo.13af2aec.svg",
     "static/media/index.scss": "/cardz/static/media/q02th.e30b4169.jpg",
-    "static/media/rules.0a67b404.md": "/cardz/static/media/rules.0a67b404.md"
+    "static/media/rules.5c94dd36.md": "/cardz/static/media/rules.5c94dd36.md",
+    "static/media/PlayerRow.module.scss": "/cardz/static/media/vector-playing-card-back.0cf0734f.png",
+    "static/media/PlayingTable.module.scss": "/cardz/static/media/woodback.c664490e.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.61541520.js",
+    "static/js/runtime-main.04c1283f.js",
     "static/css/2.93b5ccd8.chunk.css",
-    "static/js/2.11449d4d.chunk.js",
-    "static/css/main.845bd164.chunk.css",
-    "static/js/main.7dec8998.chunk.js"
+    "static/js/2.97fb5dbb.chunk.js",
+    "static/css/main.be5d3192.chunk.css",
+    "static/js/main.c5354d77.chunk.js"
   ]
 }
