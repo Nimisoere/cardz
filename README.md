@@ -4,7 +4,7 @@ This project was build with React/Typescript, Redux toolkit, Redux persist.
 
 ## DEMO
 
-[http://localhost:3000](http://localhost:3000)
+[https://ntl-cardz.netlify.app/](https://ntl-cardz.netlify.app/)
 
 ## TO DO
 
